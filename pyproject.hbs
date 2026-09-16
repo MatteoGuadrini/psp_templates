@@ -19,6 +19,11 @@ dependencies = {{{DEPS}}}
 [tool.setuptools.packages.find]
 where = ["{{PRJ_NAME}}"]
 
+{{#if OTHER_DEPS}}
+[project.optional-dependencies]
+dev = {{{DEV_DEPS}}}
+{{/if}}
+
 [project.urls]
 homepage = "{{HOMEPAGE}}"
 documentation = "{{DOCUMENTATION}}"
