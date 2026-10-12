@@ -2,6 +2,11 @@
 
 {{{BUILDER}}}
 
+{{#if MODULE}}
+[tool.setuptools]
+py-modules = {{{MODULES}}}
+{{/if}}
+
 [project]
 name = "{{PRJ_NAME}}"
 version = "{{PRJ_VER}}"
