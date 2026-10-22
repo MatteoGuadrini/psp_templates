@@ -24,11 +24,17 @@ dependencies = {{{DEPS}}}
 {{#unless MODULE}}
 [tool.setuptools.packages.find]
 where = ["{{PRJ_NAME}}"]
+include = ["{{PRJ_NAME}}*"]
 {{/unless}}
 
 {{#if OTHER_DEPS}}
 [project.optional-dependencies]
 dev = {{{DEV_DEPS}}}
+{{/if}}
+
+{{#if PACKAGE_DATA}}
+[tool.setuptools.package-data]
+{{{PACKAGE_DATA_LIST}}}
 {{/if}}
 
 [project.urls]
