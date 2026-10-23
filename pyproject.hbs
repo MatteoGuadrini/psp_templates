@@ -23,7 +23,7 @@ dependencies = {{{DEPS}}}
 
 {{#unless MODULE}}
 [tool.setuptools.packages.find]
-where = ["{{PRJ_NAME}}"]
+where = [".", "{{PRJ_NAME}}"]
 include = ["{{PRJ_NAME}}*"]
 {{/unless}}
 
