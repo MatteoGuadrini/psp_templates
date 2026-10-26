@@ -3,9 +3,11 @@
 # vim: se ts=4 et syn=python:
 # {{SIGNATURE}}, version {{VERSION}}
 
+import os
 import sys
 
-sys.path.append("..")
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from test import __version__
 
 print(f"WARNING: this is a sample file of '{{PACKAGE}}' package, version {__version__}")
