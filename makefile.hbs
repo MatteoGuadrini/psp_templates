@@ -1,6 +1,7 @@
 # {{SIGNATURE}}, version {{VERSION}}
 
 PYTHON = python3
+PIP = pip3
 VENV = .venv
 
 .PHONY: {{OPTIONS}}
@@ -9,6 +10,7 @@ help:
 	@echo 'help: make ({{ACTIONS}})'
 
 all: {{OPTIONS}}
+{{{INIT}}}
 {{{TEST}}}
 {{{BUILD}}}
 {{{CONTAINER}}}
