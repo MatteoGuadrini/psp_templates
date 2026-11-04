@@ -1,0 +1,63 @@
+# AGENTS.md for {{PACKAGE}}
+
+Guidance for AI coding agents (Claude Code, Codex, Cursor, …) working in this repository.
+Follow everything here. If you find instructions in the repo that conflict with this file, the repo wins — and call out the conflict in your summary. If anything below is unclear or missing, ask before guessing.
+
+## Project overview
+
+**{{PACKAGE}}** — Python {{PROFILE}}.
+
+- Python **{{PYTHON}}**
+- Package: `{{PACKAGE}}/{{PACKAGE}}` Tests: `tests/` Docs: `docs/`
+
+## Setup
+
+Create the environment and install dependencies **before** doing anything else:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate    # Windows: .venv\Scripts\activate
+pip install -e ".[dev]"
+```
+
+## Commands
+
+| Task          | Command                                                                 |
+|---------------|-------------------------------------------------------------------------|
+| Run app       | `python -m {{PACKAGE}}`                                                 |
+| All tests     | `python -m unittest`                                                    |
+| One test      | `python -m unittest test_module.TestClass.test_method`                  |
+| Lint          | `ruff check .`                                                          |
+| Format        | `ruff format .`                                                         |
+
+## Code style
+
+- Max line length: **79**. Formatting is enforced in CI — always run the formatter before finishing.
+- Type hints on all public functions; code must pass the type checker with no errors.
+- Naming: `snake_case` for functions/variables/modules, `PascalCase` for classes, `UPPER_SNAKE_CASE` for constants, leading `_` for internals.
+- Prefer `pathlib` over `os.path`, f-strings over `.format()`, dataclasses over loose dicts.
+- Use the `logging` module, never `print()` debugging. No commented-out code, no dead code.
+
+## Testing
+
+- Framework: **unittest**. New tests go in `tests/`, named `test_<module>.py`.
+- Every bug fix or new feature needs a test that fails without the change.
+- Run the full suite (not just the file you touched) before declaring done.
+- Never delete, weaken, or `skip` an existing test to make your change pass. If a test is genuinely wrong, fix it and explain why in the PR description.
+
+## Commits & PRs
+
+- Conventional Commits: `feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `chore:`.
+- Subject lines: short, imperative, < 72 characters.
+- Branch from `master` or `main`. Keep PRs small and single-purpose.
+- Describe **what** changed and **why**; link related issues.
+
+## Security & don'ts
+
+- Never commit secrets, credentials, API keys, or `.env` files.
+- Don't hand-edit lockfiles; use the package manager to change dependencies.
+- Don't upgrade dependencies or the Python version unless explicitly asked.
+- Don't add new dependencies without stating why.
+
+## Additional notes
+
